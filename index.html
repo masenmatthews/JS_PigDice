@@ -1,10 +1,60 @@
 <!DOCTYPE html>
 <html>
   <head>
-
-    <title></title>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>Pig Dice</title>
   </head>
   <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Pig Dice</h1>
+      </div>
 
+      <form id="name-input">
+        <h4>Enter player names:</h4>
+        <div class="form-group">
+          <label for="name1">Player One</label>
+          <input id="player-one-input" class="form-control" type="text">
+        </div>
+        <div class="form-group">
+          <label for="name2">Player Two</label>
+          <input id="player-two-input" class="form-control" type="text">
+        </div>
+        <button type="click" class="btn btn-info" id="name-submit">Submit</button>
+      </form>
+
+      <div id="firstresult">
+        <span class="amount"></span>
+      </div>
+
+        <div id="game-interface">
+          <div class="row">
+            <div class="col-md-6">
+              <h1>Player One</h1>
+              <button type="click" class="btn btn-info" id="roll1">Roll</button>
+              <button type="click" class="btn btn-info" id="hold1">Hold</button>
+
+              <div class="output1">
+                <h3>Roll: </h3>
+                <h3>Total Score: </h3>
+              </div>
+            </div>
+
+          <div class="col-md-6">
+            <h1>Player Two</h1>
+            <button type="click" class="btn btn-info" id="roll2">Roll</button>
+            <button type="click" class="btn btn-info" id="hold2">Hold</button>
+
+            <div class="output2">
+              <h3>Roll: </h3>
+              <h3>Total Score: </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
