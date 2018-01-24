@@ -11,10 +11,13 @@ function Game(turnTotal, totalScore) {
 
 var generatedNumber = function() {
  var genNum = Math.floor((Math.random() * 6) + 1);
- // var genNumArray = genNum.push();
- // console.log(genNumArray);
+ if (genNum === 1) {
+   alert("Switch players!");
+   genNum.remove("#player-one-roll");
+ } else {
  return genNum;
-}
+ }
+};
 
 //ui
 $(document).ready(function() {
@@ -38,7 +41,6 @@ $(document).ready(function() {
     event.preventDefault();
     var randomNum = generatedNumber();
     outputOneArray.push(randomNum);
-    console.log(outputOneArray);
     $("ul#player-one-roll").append("<li>" + randomNum + "</li>");
   });
 
@@ -46,15 +48,9 @@ $(document).ready(function() {
     event.preventDefault();
     var randomNum = generatedNumber();
     outputTwoArray.push(randomNum);
-    console.log(outputTwoArray);
     $("ul#player-two-roll").append("<li>" + randomNum + "</li>");
   });
-
-
-
-
 });
-
 
 
 //var randomNumberBetween1and6 =
