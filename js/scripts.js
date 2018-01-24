@@ -4,17 +4,9 @@ function Game(name1, name2) {
   this.name2 = name2;
 }
 
-// function Dice(side1, side2, side3, side4, side5, side6) {
-//   this.side1 = side1;
-//   this.side2 = side2;
-//   this.side3 = side3;
-//   this.side4 = side4;
-//   this.side5 = side5;
-//   this.side6 = side6;
-// }
-
-function roll () {
-  var num = Math.floor(Math.random() * (6 - 0 + 1));
+var generatedNumber = function() {
+ var genNum = Math.floor((Math.random() * 6) + 1);
+ return genNum
 }
 
 //ui
@@ -32,10 +24,24 @@ $(document).ready(function() {
     $("#game-interface").fadeIn();
   });
 
-  $("button.roll").click(function()) {
-      event.preventDefault();
+  $("button#roll1").click(function(event) {
+    event.preventDefault();
+    var randomNum = generatedNumber()
+    $("ul#player-one-roll").append("<li>" + randomNum + "</li>");
+
   });
+
+  $("button#roll2").click(function(event) {
+    event.preventDefault();
+    var randomNum = generatedNumber();
+    $("ul#player-two-roll").append("<li>" + randomNum + "</li>");
+  });
+
+
+
+
 });
+
 
 
 //var randomNumberBetween1and6 =
