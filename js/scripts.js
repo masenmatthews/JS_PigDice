@@ -2,7 +2,7 @@
 
 function Player(turn) {
   this.playerName = "";
-  this.totalScore = [];
+  this.totalScore = 0;
   this.roundScore = [];
   this.turn = turn;
 };
@@ -22,7 +22,7 @@ Player.prototype.rollDice = function() {
 
 Player.prototype.hold = function() {
   var sum = this.roundScore.reduce((total, amount) => total + amount);
-  return sum + this.totalScore;
+  this.totalScore += sum;
 };
 
 // Player.prototype.turn = function() {
@@ -60,8 +60,9 @@ $(document).ready(function() {
   });
 
   $("button#hold1").click(function() {
-    var holdOne = player1.hold();
-    $("ul#player-one-score").text(holdOne);
+    player1.hold();
+    $("ul#player-one-score").text(player1.totalScore);
+    player1.win();
   });
 
   $("button#roll2").click(function() {
@@ -70,14 +71,13 @@ $(document).ready(function() {
   });
 
   $("button#hold2").click(function() {
-    var holdOne = player2.hold();
-    $("ul#player-two-score").text(holdOne);
-
-    //turn activation from biz logic
+    player2.hold();
+    $("ul#player-two-score").text(player2.totalScore);
+  });
 
     // if (diceValue === 1) {
     // $(".well").hide();
     //   // this.roundScore === 0;
     // }
-  });
+
 });
