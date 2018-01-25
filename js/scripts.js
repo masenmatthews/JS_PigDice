@@ -1,23 +1,28 @@
 //biz
-function Players(name1, name2) {
-  this.name1 = name1;
-  this.name2 = name2;
+function Player(name) {
+  this.name = name;
+  this.totalScore = 0;
+  this.roundScore = 0;
 }
 
-function Game(turnTotal, totalScore) {
-  this.turnTotal = turnTotal;
-  this.totalScore = totalScore;
+Player.prototype.score = function() {
+  return this.round +
 }
 
-var generatedNumber = function() {
+var player1 = new Player()
+
+
+var rollDice = function() {
  var genNum = Math.floor((Math.random() * 6) + 1);
  if (genNum === 1) {
    alert("Switch players!");
-   genNum.remove("#player-one-roll");
  } else {
  return genNum;
  }
 };
+
+// var rollSum = function() {
+//   for (var i = 0, i <= outputOneArray.length, i++)
 
 //ui
 $(document).ready(function() {
@@ -30,7 +35,7 @@ $(document).ready(function() {
     var name1 = $("input#name1").val();
     var name2 = $("input#name2").val();
 
-    newPlayers = new Players(name1, name2);
+    newPlayer = new Player(name1, name2);
 
     $("#welcome-message").text("Welcome to Pig Dice, " + name1 + " and " + name2 + "!");
     $("form#name-input").hide();
@@ -50,7 +55,28 @@ $(document).ready(function() {
     outputTwoArray.push(randomNum);
     $("ul#player-two-roll").append("<li>" + randomNum + "</li>");
   });
+
+  $("button#hold1").click(function(event) {
+    event.preventDefault();
+    alert("Switch to Player 2!");
+  });
+
+  $("button#hold2").click(function(event) {
+    event.preventDefault();
+    alert("Switch to Player 1!");
+  });
 });
+
+  //newGame = new Game(turnTotal, totalScore)
+
+//   for (var i = 0; i < outputOneArray.length; i++) {
+//     for (sum += outputOneArray[i]); {
+//     console.log(outputOneArray);
+//   }
+// };
+
+
+
 
 
 //var randomNumberBetween1and6 =
