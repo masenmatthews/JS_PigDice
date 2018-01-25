@@ -3,16 +3,16 @@
 function Player() {
   this.playerName = "";
   this.totalScore = 0;
-  this.roundScore = 0;
+  this.roundScore = [];
     //this.turn = turn;
 };
 
 Player.prototype.rollDice = function() {
   var diceValue = Math.floor((Math.random() * 6) + 1);
   if (diceValue === 1) {
-    alert("Switch players!");
     this.roundScore === 0;
   } else {
+    this.roundScore.push(diceValue);
     return diceValue;
   }
 };
