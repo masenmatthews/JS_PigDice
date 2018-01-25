@@ -10,9 +10,8 @@ function Player(turn) {
 Player.prototype.rollDice = function() {
   var diceValue = Math.floor((Math.random() * 6) + 1);
   if (diceValue === 1) {
-
     alert("Next player's turn!");
-    //this.roundScore === 0;
+    this.roundScore = [];
   } else {
     this.roundScore.push(diceValue);
     console.log(this.roundScore);
@@ -24,10 +23,6 @@ Player.prototype.hold = function() {
   var sum = this.roundScore.reduce((total, amount) => total + amount);
   this.totalScore += sum;
 };
-
-// Player.prototype.turn = function() {
-//
-// };
 
 Player.prototype.win = function() {
   if (this.totalScore >= 100) {
@@ -54,9 +49,12 @@ $(document).ready(function() {
     $("#game-interface").fadeIn();
   });
 
+// player one buttons
+
   $("button#roll1").click(function() {
     var rollOne = player1.rollDice();
-    $("ul#player-one-roll").text(rollOne);
+    $("ul#player-one-roll").text(player1.roundScore);
+
   });
 
   $("button#hold1").click(function() {
@@ -65,9 +63,11 @@ $(document).ready(function() {
     player1.win();
   });
 
+// player two buttons
+
   $("button#roll2").click(function() {
     var rollTwo = player2.rollDice();
-    $("ul#player-two-roll").text(rollTwo);
+    $("ul#player-two-roll").text(player2.roundScore);
   });
 
   $("button#hold2").click(function() {
