@@ -1,34 +1,21 @@
 //biz
-function Player(name) {
+function Player(name, totalScore, roundScore) {
   this.name = name;
   this.totalScore = 0;
   this.roundScore = 0;
 }
 
-Player.prototype.score = function() {
-  return this.round +
-}
-
-var player1 = new Player()
-
-
-var rollDice = function() {
- var genNum = Math.floor((Math.random() * 6) + 1);
- if (genNum === 1) {
-   alert("Switch players!");
- } else {
- return genNum;
- }
-};
-
-// var rollSum = function() {
-//   for (var i = 0, i <= outputOneArray.length, i++)
+Player.prototype.rollingDice = function() {
+  var genNum = Math.floor((Math.random() * 6) + 1);
+  if (genNum === 1) {
+    alert("Switch players!");
+  } else {
+  return genNum;
+  }
+ };
 
 //ui
 $(document).ready(function() {
-  var outputOneArray = [];
-  var outputTwoArray = [];
-
   $("form#name-input").submit(function(event) {
     event.preventDefault();
 
@@ -42,10 +29,8 @@ $(document).ready(function() {
     $("#game-interface").fadeIn();
   });
 
-  $("button#roll1").click(function(event) {
+  $("button#roll1").click(rollDice(event)) {
     event.preventDefault();
-    var randomNum = generatedNumber();
-    outputOneArray.push(randomNum);
     $("ul#player-one-roll").append("<li>" + randomNum + "</li>");
   });
 
@@ -66,20 +51,6 @@ $(document).ready(function() {
     alert("Switch to Player 1!");
   });
 });
-
-  //newGame = new Game(turnTotal, totalScore)
-
-//   for (var i = 0; i < outputOneArray.length; i++) {
-//     for (sum += outputOneArray[i]); {
-//     console.log(outputOneArray);
-//   }
-// };
-
-
-
-
-
-//var randomNumberBetween1and6 =
 
   //});
 // });
