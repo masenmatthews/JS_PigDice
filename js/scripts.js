@@ -2,7 +2,7 @@
 
 function Player() {
   this.playerName = "";
-  this.totalScore = 0;
+  this.totalScore = [];
   this.roundScore = [];
     //this.turn = turn;
 };
@@ -13,19 +13,21 @@ Player.prototype.rollDice = function() {
     this.roundScore === 0;
   } else {
     this.roundScore.push(diceValue);
+    console.log(this.roundScore);
     return diceValue;
   }
 };
 
 Player.prototype.hold = function() {
-  return this.roundScore + this.totalScore;
-  alert("Switch players!");
+  var sum = this.roundScore.reduce((total, amount) => total + amount);
+  return sum + this.totalScore;
 };
 
 Player.prototype.win = function() {
-  if (this.totalScore === 100) {
-    alert("You win!")
+  if (this.totalScore >= 100) {
+    alert("You win!");
   } else {
+    return this.totalScore;
   }
 };
 
@@ -49,7 +51,6 @@ $(document).ready(function() {
   $("button#roll1").click(function(event) {
     event.preventDefault();
     var rollOne = player1.rollDice();
-    $("ul#player-one-roll").append("<li>" + rollOne + "</li>");
   });
 
   $("button#hold1").click(function(event) {
@@ -58,17 +59,14 @@ $(document).ready(function() {
     $("ul#player-one-score").append("<li>" + holdOne + "</li>");
   });
 
-  // $("button#roll2").click(function(event) {
-  //   event.preventDefault();
-  //   var randomNum = generatedNumber();
-  //   outputTwoArray.push(randomNum);
-  //   $("ul#player-two-roll").append("<li>" + randomNum + "</li>");
-  // });
-  //
+  $("button#roll2").click(function(event) {
+    event.preventDefault();
+    var rollOne = player2.rollDice();
+  });
 
-  //
-  // $("button#hold2").click(function(event) {
-  //   event.preventDefault();
-  //   alert("Switch to Player 1!");
-  // });
+  $("button#hold2").click(function(event) {
+    event.preventDefault();
+    var holdOne = player2.hold();
+    $("ul#player-two-score").append("<li>" + holdOne + "</li>");
+  });
 });
