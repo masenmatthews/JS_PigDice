@@ -73,6 +73,7 @@ $(document).ready(function() {
   $("button#hold2").click(function() {
     player2.hold();
     $("ul#player-two-score").text(player2.totalScore);
+    player2.win();
   });
 
     // if (diceValue === 1) {

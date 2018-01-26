@@ -6,3 +6,22 @@
 #game-interface {
   display: none;
 }
+
+#welcome-message {
+  font-size: 30px;
+  text-align: center;
+  margin: 15px;
+  padding: 10px;
+}
+
+.container {
+  font-family: 'Lato', sans-serif;
+}
+
+.form-group {
+  font-size: 18px;
+}
+
+#player-one-roll, #player-one-score, #player-two-roll, #player-two-score {
+  font-size: 20px;
+}
