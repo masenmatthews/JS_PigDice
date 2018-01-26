@@ -25,3 +25,7 @@
 #player-one-roll, #player-one-score, #player-two-roll, #player-two-score {
   font-size: 20px;
 }
+
+.well {
+  background-color: #ABEBC6;
+}
