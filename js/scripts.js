@@ -22,6 +22,7 @@ Player.prototype.rollDice = function() {
 Player.prototype.hold = function() {
   var sum = this.roundScore.reduce((total, amount) => total + amount);
   this.totalScore += sum;
+  this.roundScore = [];
 };
 
 Player.prototype.win = function() {
